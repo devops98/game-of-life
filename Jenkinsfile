@@ -1,18 +1,22 @@
 node {
-   stage('SCM_checkout') {
+   stage('Build'){
             steps {
-              git url: "https://github.com/devops98/game-of-life.git", branch: 'master'
+                sh 'mvn clean package'
             }
-        }
 
    
    try {
-    stage 'Build'
+    stage 'Build'      {
+       steps {
     sh "${Maven_Home}/bin/mvn clean install"
+      }
    
-    stage 'Archive'
+    stage 'Archive'      {
+       steps {
     archiveArtifacts  'target/gameoflife/gameoflife-deploy/gameoflife.war'
    } catch (err) {
     emailext body: 'Hi, your build successfully failed', subject: 'Test jenkins', to: 'test@gmail.com'
    }
+   }
 }
+   }
