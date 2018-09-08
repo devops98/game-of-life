@@ -1,6 +1,10 @@
 node {
-   stage 'Checkout'
-   
+   stage('SCM_checkout') {
+            steps {
+              git url: "https://github.com/devops98/game-of-life.git", branch: 'master'
+            }
+        }
+
    
    try {
     stage 'Build'
