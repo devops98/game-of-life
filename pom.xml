@@ -308,7 +308,7 @@
                                 <plugin>
                                     <groupId>org.jacoco</groupId>
                                     <artifactId>jacoco-maven-plugin</artifactId>
-                                    <version>${jacaco-version}</version>
+                                    <version>${jacaco.version}</version>
                                 </plugin>
                                 <plugin>
                                     <groupId>org.apache.maven.plugins</groupId>
