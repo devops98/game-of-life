@@ -1,4 +1,5 @@
 node {
+   stages {
    stage('Build'){
             steps {
                 sh 'mvn clean package'
@@ -18,5 +19,6 @@ node {
     emailext body: 'Hi, your build successfully failed', subject: 'Test jenkins', to: 'test@gmail.com'
       }
    }
+}
 }
 }
